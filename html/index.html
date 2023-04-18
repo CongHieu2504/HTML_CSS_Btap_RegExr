@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css   ">
+    <style>
+        *{
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 800px;
+            margin-top: 50px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <h1><b>KIỂM TRA TÍNH HỢP LỆ</b></h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="">Nhập tên:</label>
+            </div>
+
+            <div class="col-sm-7">
+                <input style="width: 320px;" type="text" name="" id="name" placeholder="Enter your name">
+                <button id="btn_name">Enter</button>
+            </div>
+
+            <div class="col-sm-2">
+                <label id="lbl_name" for=""></label>
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-3">
+            <div class="col-sm-3">
+                <label for="">Nhập số điện thoại:</label>
+            </div>
+
+            <div class="col-sm-7">
+                <input style="width: 320px;" type="text" name="" id="phone" placeholder="Enter your phone">
+                <button id="btn_phone">Enter</button>
+            </div>
+
+            <div class="col-sm-2">
+                <label id="lbl_phone" for=""></label>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let data =document.getElementById("btn_name");
+        data.addEventListener('click', function () {
+        formValidate();
+        });
+
+        let data1 =document.getElementById("btn_phone");
+        data1.addEventListener('click', function () {
+        formValidate1();
+        });
+
+        function formValidate()
+        {
+            let lbl =document.getElementById("lbl_name");
+            var regExp = /[a-zA-Z]/;
+            var name = document.getElementById("name").value;
+            if (regExp.test(name)) 
+                document.getElementById("lbl_name").innerHTML ="Nhập đúng tên !"
+            else 
+                document.getElementById("lbl_name").innerHTML ="Nhập sai tên !"
+        } 
+
+
+        function formValidate1()
+        {
+            let lbl =document.getElementById("lbl_phone");
+            var regExp = /^0[0-9]{9}/;
+            var phone = document.getElementById("phone").value;
+            if (regExp.test(phone)) 
+                document.getElementById("lbl_phone").innerHTML ="Nhập đúng số !"
+            else 
+                document.getElementById("lbl_phone").innerHTML ="Nhập sai số !"
+        }
+    </script>
+</body>
+</html>
